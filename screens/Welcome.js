@@ -14,7 +14,7 @@ const Welcome = ({ navigation }) => {
             </Block>    
         </Block>
     );
-}
+};
 
-export default Welcome
+export default Welcome;
 

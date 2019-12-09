@@ -4,7 +4,6 @@ import * as constant from '../constants';
 import { connect } from 'react-redux';
 
 const Login = (props) => {
-    console.log(props.booking)
     return(
         <Block loginForm>
             <Block row>
@@ -21,7 +20,7 @@ const Login = (props) => {
                 </Button>
             </Block> 
         </Block>
-    ) 
+    ); 
 };
 
 const mapStateToProps = state => ({

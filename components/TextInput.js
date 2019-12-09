@@ -14,9 +14,9 @@ const InputText = (props) => {
       {props.children} 
     </TextInput>  
   );
-}
+};
 
-export default InputText
+export default InputText;
 
 const styles = StyleSheet.create({
   login: { 
@@ -25,5 +25,5 @@ const styles = StyleSheet.create({
     borderColor: 'gray', 
     borderWidth: 1
   }
-})
+});
   

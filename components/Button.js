@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import * as theme from '../constants/theme';
 
 const Button = (props) => {
+  console.log(props)
   const { primary, secondary } = props;
   const buttonStyles = [
     primary && styles.primary,

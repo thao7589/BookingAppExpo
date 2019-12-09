@@ -3,10 +3,12 @@ import { Text, StyleSheet } from "react-native";
 import { theme } from "../constants";
 
 const Typography = (props) => {
-  const { login, h3 } = props;
+  const { login, h3, homeTitleText, homeBodyText } = props;
   const textStyles = [
     login && styles.login,
-    h3 && styles.h3
+    h3 && styles.h3,
+    homeTitleText && styles.homeTitleText,
+    homeBodyText && styles.homeBodyText
   ]; 
 
   return (
@@ -14,9 +16,9 @@ const Typography = (props) => {
       {props.children} 
     </Text>  
   );
-}
+};
 
-export default Typography
+export default Typography;
 
 const styles = StyleSheet.create({
   login: {
@@ -26,6 +28,16 @@ const styles = StyleSheet.create({
   },
   h3: {
     fontSize: theme.sizes.h3
+  },
+  homeTitleText: {
+    marginVertical: 10,
+    marginHorizontal: 20
+  },
+  homeBodyText: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginVertical: 10,
+      marginHorizontal: 20
   }
-})
+});
   
