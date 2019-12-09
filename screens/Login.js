@@ -3,6 +3,7 @@ import { Block, Button, Text, TextInput } from '../components';
 import * as constant from '../constants';
 
 const Login = (props) => {
+    console.log(this.props.booking)
     return(
         <Block loginForm>
             <Block row>
@@ -20,6 +21,13 @@ const Login = (props) => {
             </Block> 
         </Block>
     ) 
-}
+};
 
-export default Login
+export default Login;
+
+
+const mapStateToProps = state => ({
+    booking: state.booking
+})
+
+export default connect(mapStateToProps, { updateField, submitLogin })(Login)

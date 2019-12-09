@@ -8,7 +8,7 @@ const Welcome = ({ navigation }) => {
                 <Button primary onPress={ () => navigation.navigate('Login') }>
                     <Text login>Login</Text>
                 </Button>
-                <Button secondary onPress={ () => navigation.navigate('Signup') }>
+                <Button secondary onPress={ () => navigation.navigate('SignUp') }>
                     <Text login>Sign Up</Text>
                 </Button> 
             </Block>    

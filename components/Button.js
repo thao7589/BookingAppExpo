@@ -7,16 +7,16 @@ const Button = (props) => {
   const buttonStyles = [
     primary && styles.primary,
     secondary && styles.secondary
-  ]; 
+  ]
 
   return (
     <TouchableOpacity style={buttonStyles} onPress={props.onPress}>
       {props.children} 
     </TouchableOpacity>  
-  );
-}
+  )
+};
 
-export default Button
+export default Button;
 
 const styles = StyleSheet.create({
   primary: {
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 25,
     backgroundColor: theme.colors.secondary
-  },
-})
+  }
+});
    

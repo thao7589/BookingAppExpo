@@ -16,10 +16,10 @@ const Block = (props) => {
     <View style={blockStyles}>
       { children }
     </View>
-  );
-}
+  )
+};
 
-export default Block
+export default Block;
  
 const styles = StyleSheet.create({
   block: {
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   loginForm: {
       margin: 10,
   }
-})
+});
