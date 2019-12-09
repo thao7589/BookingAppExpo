@@ -7,13 +7,13 @@ const InputText = (props) => {
   const { login } = props;
   const inputStyles = [
     login && styles.login
-  ] 
+  ]; 
 
   return (
     <TextInput style={inputStyles} onChangeText={props.onChangeText}>
       {props.children} 
     </TextInput>  
-  )
+  );
 }
 
 export default InputText

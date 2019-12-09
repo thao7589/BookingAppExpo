@@ -7,13 +7,13 @@ const Button = (props) => {
   const buttonStyles = [
     primary && styles.primary,
     secondary && styles.secondary
-  ] 
+  ]; 
 
   return (
     <TouchableOpacity style={buttonStyles} onPress={props.onPress}>
       {props.children} 
     </TouchableOpacity>  
-  )
+  );
 }
 
 export default Button
