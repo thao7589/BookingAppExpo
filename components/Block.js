@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Dimensions } from 'react-native'
 import { theme } from '../constants';
 
+const { height } = Dimensions.get('window');
+
 const Block = (props) => {
-  const { loginForm, block, row, center, middle, children, menu, list, drawerMenu } = props;
+  const { loginForm, block, row, center, middle, children, menu, list, drawerMenu, contact, topBar, content } = props;
   const blockStyles = [
       loginForm && styles.loginForm,
       block && styles.block,
@@ -12,7 +14,10 @@ const Block = (props) => {
       middle && styles.middle,
       menu && styles.menu,
       list && styles.list,
-      drawerMenu && styles.drawerMenu
+      drawerMenu && styles.drawerMenu,
+      contact && styles.contact,
+      topBar && styles.topBar,
+      content && styles.content
   ];
   
   return (
@@ -66,5 +71,15 @@ const styles = StyleSheet.create({
   },
   drawerMenu: {
     backgroundColor: '#85A6C9'
+  },
+  contact: {
+    backgroundColor: '#E7442B'
+  },
+  topBar: {
+    height: height / 8,
+    zIndex: 1
+  },
+  content: {
+    zIndex: 2
   }
-});
+}); 

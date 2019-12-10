@@ -8,6 +8,11 @@ import SignUp from '../screens/SignUp';
 import ChangeInfo from '../screens/ChangeInfo';
 import OrderHistory from '../screens/OrderHistory';
 import Home from '../screens/Home';
+import SideMenu from '../screens/SideMenu';
+import Contact from '../screens/Contact';
+import Cart from '../screens/Cart';
+import Entertainment from '../screens/Entertainment';
+import NightLife from '../screens/NightLife';
 
 const Navigation = createStackNavigator(
     {
@@ -17,10 +22,15 @@ const Navigation = createStackNavigator(
         SignUp: SignUp,
         ChangeInfo: ChangeInfo,
         OrderHistory: OrderHistory,
-        Home: Home
+        Home: Home,
+        SideMenu: SideMenu,
+        Contact: Contact,
+        Cart: Cart,
+        Entertainment: Entertainment,
+        NightLife: NightLife
     },
     {
-        initialRouteName: 'Home'
+        initialRouteName: 'Loading'
     }
 ); 
 
