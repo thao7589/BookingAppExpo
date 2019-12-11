@@ -3,7 +3,6 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import * as theme from '../constants/theme';
 
 const Button = (props) => {
-  console.log(props)
   const { button, primary, secondary, shop } = props;
   const buttonStyles = [
     button && styles.button,

@@ -3,10 +3,12 @@ import { Text, StyleSheet } from "react-native";
 import { theme } from "../constants";
 
 const Typography = (props) => {
-  const { login, h3, homeTitleText, homeBodyText } = props;
+  const { login, h2, h3, bold, homeTitleText, homeBodyText } = props;
   const textStyles = [
     login && styles.login,
+    h2 && styles.h2,
     h3 && styles.h3,
+    bold && styles.bold,
     homeTitleText && styles.homeTitleText,
     homeBodyText && styles.homeBodyText
   ]; 
@@ -26,18 +28,25 @@ const styles = StyleSheet.create({
     fontSize: theme.sizes.h1,
     color: theme.colors.white
   },
+  bold: {
+    fontWeight: 'bold'
+  },
+  h2: {
+    fontSize: theme.sizes.h2
+  },
   h3: {
     fontSize: theme.sizes.h3
   },
   homeTitleText: {
-    marginVertical: 10,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 20, 
     marginHorizontal: 20
   },
   homeBodyText: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      marginVertical: 10,
-      marginHorizontal: 20
+    color: '#BE5504',
+    marginVertical: 10,
+    marginHorizontal: 20
   }
 });
   

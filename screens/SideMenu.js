@@ -19,11 +19,11 @@ const SideMenu = ({ navigation }) => {
 
 	return(
 		<Drawer 
-			openDrawerOffset={ 0.5 }
+			openDrawerOffset={0.5} 
 			tapToClose
 			ref={ (ref) => this._drawer = ref }
 			content={
-				<View style={{ flex: 1, backgroundColor: '#85A6C9', zIndex: -1 }}>
+				<View style={{ flex: 1, backgroundColor: '#85A6C9', display: 'none' }}>
 					<View style={{ padding: 20, marginTop: 40 }}>
 						<TouchableOpacity onPress={ () => navigation.navigate('Entertainment') }>
 							<Text>Entertainment</Text> 
@@ -59,7 +59,7 @@ export default SideMenu;
 
 const styles = StyleSheet.create({
 	menuIcon: {
-		zIndex: 1,
+		zIndex: 9, 
 		position: 'absolute',
 		top: 40
 	}

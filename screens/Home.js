@@ -1,29 +1,46 @@
 import React, {useEffect} from 'react';
-import { FlatList } from 'react-native';
-import { Block, Text } from '../components'
+import { FlatList, Image } from 'react-native';
+import { Block, Text, Button } from '../components'
 import { connect } from 'react-redux';
+import { viewPostDetail } from '../actions/index';
 import SideMenu from '../screens/SideMenu';
+import { AsyncStorage } from 'react-native';
 
 const Home = (props) => {
+    useEffect(() => {
+        if(props.booking.viewPost) {
+            props.navigation.navigate('PostDetail')
+        }
+    });
+
+    const onViewPostDetail = id => {
+        props.viewPostDetail(id)
+    };
+
     return (
         <Block block>
-            <Block topBar>
+            {/* <Block block>
                 <SideMenu  navigation={props.navigation}/>
-            </Block>
-            <Block block content>
-                <FlatList  
-                    data={props.booking.posts}
-                    keyExtractor={post => post.id}
-                    renderItem={({ item }) => {
-                        return (
+            </Block> */}
+            <FlatList  
+                data={props.booking.posts}
+                keyExtractor={post => post.postId}
+                renderItem={({ item }) => {
+                    return (
+                        <Block block row>
+                            <Block block img>
+                                <Image source={{ uri: item.img }} style={{width: 120, height: 135}}/>
+                            </Block>
                             <Block list>
                                 <Text homeTitleText>{item.title}</Text>
-                                <Text homeBodyText>{item.body}</Text>
+                                <Button onPress={() => onViewPostDetail(item.postId)}>
+                                    <Text homeBodyText>Read more...</Text>
+                                </Button>
                             </Block>
-                        )
-                    }}
-                />
-            </Block>
+                        </Block>
+                    )
+                }}
+            />
         </Block>
   )
 }  
@@ -36,4 +53,4 @@ const mapStateToProps = state => ({
   booking: state.booking
 })
 
-export default connect( mapStateToProps)(Home)
+export default connect( mapStateToProps, { viewPostDetail })(Home)

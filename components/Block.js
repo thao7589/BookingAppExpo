@@ -5,7 +5,7 @@ import { theme } from '../constants';
 const { height } = Dimensions.get('window');
 
 const Block = (props) => {
-  const { loginForm, block, row, center, middle, children, menu, list, drawerMenu, contact, topBar, content } = props;
+  const { loginForm, block, row, center, middle, children, menu, list, drawerMenu, contact, topBar, content, img, detailPost } = props;
   const blockStyles = [
       loginForm && styles.loginForm,
       block && styles.block,
@@ -17,7 +17,9 @@ const Block = (props) => {
       drawerMenu && styles.drawerMenu,
       contact && styles.contact,
       topBar && styles.topBar,
-      content && styles.content
+      content && styles.content,
+      img && styles.img,
+      detailPost && styles.detailPost
   ];
   
   return (
@@ -67,7 +69,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#213052'
   },
   list: {
-    borderWidth: 1
+    borderWidth: 1,
+    backgroundColor: '#85A6C9',
+    flex: 6
+  },
+  img: {
+    flex: 3
   },
   drawerMenu: {
     backgroundColor: '#85A6C9'
@@ -81,5 +88,8 @@ const styles = StyleSheet.create({
   },
   content: {
     zIndex: 2
+  },
+  detailPost: {
+    margin: 20
   }
 }); 

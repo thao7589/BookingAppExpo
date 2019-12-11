@@ -13,6 +13,7 @@ import Contact from '../screens/Contact';
 import Cart from '../screens/Cart';
 import Entertainment from '../screens/Entertainment';
 import NightLife from '../screens/NightLife';
+import PostDetail from '../screens/PostDetail';
 
 const Navigation = createStackNavigator(
     {
@@ -27,7 +28,8 @@ const Navigation = createStackNavigator(
         Contact: Contact,
         Cart: Cart,
         Entertainment: Entertainment,
-        NightLife: NightLife
+        NightLife: NightLife,
+        PostDetail: PostDetail
     },
     {
         initialRouteName: 'Loading'
