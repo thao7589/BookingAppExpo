@@ -4,7 +4,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import HomeScreen from '../navigations/Screens/HomeScreen';
 import Home from '../screens/Home'
-import WelcomeScreen from '../screens/Welcome'
+import Welcome from '../screens/Welcome'
 const width = Dimensions.get('window').width;
 
 const DrawerConfig = {
@@ -14,10 +14,10 @@ const DrawerConfig = {
 	// }
 };
 
-const DrawerNavigator = createDrawerNavigator(
+const Drawer = createDrawerNavigator(
     {
         Welcome: {
-            screen: WelcomeScreen
+            screen: Welcome
         },
         Home: {
             screen: Home
@@ -26,4 +26,4 @@ const DrawerNavigator = createDrawerNavigator(
     DrawerConfig
 );
   
-export default DrawerNavigator;
+export default createAppContainer(Drawer);
