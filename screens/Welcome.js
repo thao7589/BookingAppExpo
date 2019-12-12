@@ -23,5 +23,16 @@ const Welcome = ({ navigation }) => {
     );
 };
 
+Welcome.navigationOptions = ({navigation}) => {
+    return {
+        header: null,
+        headerLeft: () => (
+          <Button onPress={() => navigation.toggleDrawer()}>
+            <Text>opencxzc</Text>
+          </Button>
+        )
+      };
+    };
+
 export default Welcome;
 

@@ -4,7 +4,9 @@ import { Block, Text, Button } from '../components'
 import { connect } from 'react-redux';
 import { viewPostDetail } from '../actions/index';
 import SideMenu from '../screens/SideMenu';
+import MenuButton from '../components/MenuButton';
 import { AsyncStorage } from 'react-native';
+import { DrawerActions } from 'react-navigation-drawer';
 
 const Home = (props) => {
     useEffect(() => {
@@ -22,6 +24,7 @@ const Home = (props) => {
             {/* <Block block>
                 <SideMenu  navigation={props.navigation}/>
             </Block> */}
+            <MenuButton />
             <FlatList  
                 data={props.booking.posts}
                 keyExtractor={post => post.postId}
