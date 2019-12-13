@@ -23,6 +23,13 @@ export const submitLogin = () => dispatch => {
     dispatch(action);
 };
 
+export const submitLogout = () => dispatch => {
+    const action = {
+        type: TYPE.LOGOUT
+    };
+    dispatch(action);
+};
+
 export const submitSignUp = () => dispatch => {
     const action = {
         type: TYPE.SIGNUP

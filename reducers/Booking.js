@@ -155,6 +155,11 @@ export default function(state = initialState, action) {
                     logined: check
                 }
             };
+        case 'LOGOUT':
+            return {
+                ...state,
+                user: initialState.user
+            };    
         case 'SIGNUP':
             check = (state.user.password == state.user.confirmPassword)
             return {
@@ -177,12 +182,16 @@ export default function(state = initialState, action) {
                 }
             }
         case 'ADD_CART': 
-        console.log(state.cart.list)
+            let list = state.cart.list;
+            let count = state.cart.count;
+
+            list.push(action.payload.post);
+            count++;
             return {
                 ...state,
                 cart: {
-                    ...state.cart,
-                    list: state.cart.list.push(action.payload.post)
+                    count: count,
+                    list: list
                 }
             }    
         case 'HANDLE_NAVIGATION_LINK':

@@ -3,6 +3,7 @@ import { Block, Button, Text, TextInput } from '../components';
 import * as constant from '../constants';
 import { connect } from 'react-redux';
 import { updateUserField, submitLogin } from '../actions/index';
+import CustomHeader from '../components/CustomHeader';
 
 const Login = (props) => {
     useEffect(() => {
@@ -24,20 +25,23 @@ const Login = (props) => {
     }
 
     return(
-        <Block loginForm>
-            <Block>
-                <Text h3>Email:</Text>
-                <TextInput login onChangeText={onChangeEmail}></TextInput>
-            </Block>
-            <Block> 
-                <Text h3>Password:</Text>
-                <TextInput login onChangeText={onChangePass}></TextInput> 
-            </Block>
+        <Block block>
+            <CustomHeader title='Login' navigation={props.navigation}/>
             <Block loginForm>
-                <Button primary onPress={onSubmitLogin}>
-                    <Text login>Login</Text>
-                </Button>
-            </Block> 
+                <Block>
+                    <Text h3>Email:</Text>
+                    <TextInput login onChangeText={onChangeEmail}></TextInput>
+                </Block>
+                <Block> 
+                    <Text h3>Password:</Text> 
+                    <TextInput login onChangeText={onChangePass}></TextInput> 
+                </Block>
+                <Block loginForm>
+                    <Button primary onPress={onSubmitLogin}>
+                        <Text login>Login</Text>
+                    </Button>
+                </Block> 
+            </Block>
         </Block>
     ); 
 };

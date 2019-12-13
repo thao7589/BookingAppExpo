@@ -1,98 +1,70 @@
 import React from 'react';
 import { View, Dimensions, SafeAreaView, ScrollView } from 'react-native';
-import { Header, Left, Body, Right, Button, Icon, Title, Text, List, ListItem } from 'native-base';
+import { Header, Left, Body, Right, Button, Icon, Title, Text, List, ListItem, Badge } from 'native-base';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
+import { submitLogout } from '../actions/index';
 
-class CustomHeader extends React.Component {
-    state = {
-        loading: true
-    }
+import Welcome from '../screens/Welcome';
+import Home from '../screens/Home';
+import Login from '../screens/Login';
+import SignUp from '../screens/SignUp';
+import PostDetail from '../screens/PostDetail';
+import Cart from '../screens/Cart';
 
-    async componentDidMount() {
-        await Font.loadAsync({
-            'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
-            'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
-            ...Ionicons.font,
-        })
-        this.setState({ loading: false })  
-    }
-    render() {
-        if (this.state.loading) {
-            return (
-              <View></View>
-            );
-        }
-        let {title, isHome} = this.props
-        return(
-            <Header>
-                <Left>
-                    { isHome ?
-                    <Button transparent onPress={ () => this.props.navigation.openDrawer() }>
-                        <Icon name='menu' />
-                    </Button> :
-                    <Button transparent onPress={ () => this.props.navigation.goBack() }>
-                        <Icon name='arrow-back' />
-                    </Button>
-                    }
-                </Left>
-                <Body>
-                    <Title>Header</Title>
-                </Body>
-            </Header>
-        )
-    }
-}
+import CustomHeader from '../components/CustomHeader';
 
-class HomeScreen extends React.Component {
-    state = {
-        loading: true
-    }
 
-    async componentDidMount() {
-        await Font.loadAsync({
-            'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
-            'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
-            ...Ionicons.font,
-        })
-        this.setState({ loading: false })  
-    }
+// class HomeScreen extends React.Component {
+//     state = {
+//         loading: true
+//     }
 
-    render() {
-        if(this.state.loading) {
-            return(
-                <View></View>
-            )
-        } 
-        return (
-        <View style={{ flex: 1}}>
-            <CustomHeader title='Home' isHome={true} navigation={this.props.navigation}/>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Button light onPress={ () => this.props.navigation.navigate('HomeDetail')}>
-                    <Text>Go to Home</Text>
-                </Button>
-            </View>
-        </View>
-        );
-    }
-} 
+//     async componentDidMount() {
+//         await Font.loadAsync({
+//             'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
+//             'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
+//             ...Ionicons.font,
+//         })
+//         this.setState({ loading: false })  
+//     }
 
-class HomeScreenDetail extends React.Component {
-    render() { 
-        return (
-        <View style={{ flex: 1}}>
-            <CustomHeader title="Home Detail" navigation={ this.props.navigation }/>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home Detail!</Text>
-            </View>
-        </View>
-        );
-    }
-} 
+//     render() {
+//         if(this.state.loading) {
+//             return(
+//                 <View></View>
+//             )
+//         } 
+//         return (
+//         <View style={{ flex: 1}}>
+//             <CustomHeader title='Home' isHome={true} navigation={this.props.navigation}/>
+//             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//                 <Button light onPress={ () => this.props.navigation.navigate('HomeDetail')}>
+//                     <Text>Go to Home</Text>
+//                 </Button>
+//             </View>
+//         </View>
+//         );
+//     }
+// } 
+
+// class HomeScreenDetail extends React.Component {
+//     render() { 
+//         return (
+//         <View style={{ flex: 1}}>
+//             <CustomHeader title="Home Detail" navigation={ this.props.navigation }/>
+//             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//                 <Text>Home Detail!</Text>
+//             </View>
+//         </View>
+//         );
+//     }
+// } 
 
 class SettingsScreen extends React.Component {
   render() {
@@ -145,92 +117,114 @@ class Profile extends React.Component {
     }
 } 
 
-class Login extends React.Component {
-    state = {
-        loading: true
-    }
+// class Login extends React.Component {
+//     state = {
+//         loading: true
+//     }
 
-    async componentDidMount() {
-        await Font.loadAsync({
-            'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
-            'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
-            ...Ionicons.font,
-        })
-        this.setState({ loading: false })  
-    }
-    render() {
-        if (this.state.loading) {
-            return (
-              <View></View>
-            );
-        }
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Login screen</Text>
-                <Button light style={{margin: 10}} onPress={ () => this.props.navigation.navigate('app') }>
-                    <Text>Login</Text>
-                </Button>
-                <Button light style={{margin: 10}} onPress={ () => this.props.navigation.navigate('Register') }>
-                    <Text>Register</Text>
-                </Button> 
-            </View>
-        );
-    }
-} 
+//     async componentDidMount() {
+//         await Font.loadAsync({
+//             'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
+//             'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
+//             ...Ionicons.font,
+//         })
+//         this.setState({ loading: false })  
+//     }
+//     render() {
+//         if (this.state.loading) {
+//             return (
+//               <View></View>
+//             );
+//         }
+//         return (
+//             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//                 <Text>Login screen</Text>
+//                 <Button light style={{margin: 10}} onPress={ () => this.props.navigation.navigate('app') }>
+//                     <Text>Login</Text>
+//                 </Button>
+//                 <Button light style={{margin: 10}} onPress={ () => this.props.navigation.navigate('Register') }>
+//                     <Text>Register</Text>
+//                 </Button> 
+//             </View>
+//         );
+//     }
+// } 
 
-class Register extends React.Component {
-    state = {
-        loading: true
-    }
+// class Register extends React.Component {
+//     state = {
+//         loading: true
+//     }
 
-    async componentDidMount() {
-        await Font.loadAsync({
-            'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
-            'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
-            ...Ionicons.font,
-        })
-        this.setState({ loading: false })  
-    }
-    render() {
-        if (this.state.loading) {
-            return (
-              <View></View>
-            );
-        }
-        return (
-            <View style={{ flex: 1}}>
-            <CustomHeader title="Register" navigation={ this.props.navigation } />
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Register</Text>
-            </View>
-            </View>
-        );
-    }
-} 
+//     async componentDidMount() {
+//         await Font.loadAsync({
+//             'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
+//             'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
+//             ...Ionicons.font,
+//         })
+//         this.setState({ loading: false })  
+//     }
+//     render() {
+//         if (this.state.loading) {
+//             return (
+//               <View></View>
+//             );
+//         }
+//         return (
+//             <View style={{ flex: 1}}>
+//             <CustomHeader title="Register" navigation={ this.props.navigation } />
+//             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//                 <Text>Register</Text>
+//             </View>
+//             </View>
+//         );
+//     }
+// } 
 
 class SideMenu extends React.Component {
+    onLogout = () => {
+        this.props.submitLogout();
+        this.props.navigation.navigate('Welcome');
+    }
+
     render() {
         return(
             <SafeAreaView style={{flex: 1, paddingTop: 20}}>
                 <ScrollView>
                     <List>
-                        <ListItem onPress={ () => this.props.navigation.navigate('Search') }>
-                            <Text>Setting</Text>
+                        <ListItem onPress={ () => this.props.navigation.navigate('Home') }>
+                            <Text>Home</Text>
                         </ListItem>
-                        <ListItem onPress={ () => this.props.navigation.navigate('Profile') }>
-                            <Text>Profile</Text>
+                        <ListItem onPress={ () => this.props.navigation.navigate('Cart') }>
+                            {this.props.cart.count > 0 && <Badge style={{ position: 'absolute' }}><Text>{this.props.cart.count}</Text></Badge>}
+                            <Text>Cart</Text>
                         </ListItem>
                     </List>
                 </ScrollView>
                 <List>
-                    <ListItem>
-                        <Text>Logout</Text>
-                    </ListItem>
+                    {this.props.logined ?(
+                        <ListItem onPress={ this.onLogout }>
+                            <Text>Logout</Text>
+                        </ListItem>
+                        ) : (
+                            <ListItem onPress={ () => this.props.navigation.navigate('Login') }>
+                                <Text>Login</Text>
+                            </ListItem>
+                        )
+                    }
                 </List>
             </SafeAreaView>
         )
     }
 }
+
+
+
+const mapStateToProps = state => ({
+    cart: state.booking.cart,
+    logined: state.booking.user.logined
+  })
+  
+let SideMenuConnect =  connect( mapStateToProps, { submitLogout })(SideMenu);
 
 const navOptionHandler = {
     header: null
@@ -239,32 +233,32 @@ const navOptionHandler = {
 const HomeStack = createStackNavigator(
     {
         Home: {
-            screen: HomeScreen,
+            screen: Home,
             navigationOptions: navOptionHandler
         },
-        HomeDetail: {
-            screen: HomeScreenDetail,
+        PostDetail: {
+            screen: PostDetail,
             navigationOptions: navOptionHandler
         }
     }
 )
 
-const SettingStack = createStackNavigator(
-    {
-        Setting: {
-            screen: SettingsScreen,
-            navigationOptions: navOptionHandler
-        },
-        SettingDetail: {
-            screen: SettingDetail,
-            navigationOptions: navOptionHandler
-        }
-    }
-)
+// const SettingStack = createStackNavigator(
+//     {
+//         Setting: {
+//             screen: SettingsScreen,
+//             navigationOptions: navOptionHandler
+//         },
+//         SettingDetail: {
+//             screen: SettingDetail,
+//             navigationOptions: navOptionHandler
+//         }
+//     }
+// )
 
 const MainTab = createBottomTabNavigator({
   Home: HomeStack,
-  Settings: SettingStack,
+  Cart: Cart,
 });
 
 const MainStack = createStackNavigator({
@@ -287,19 +281,23 @@ const appDrawer = createDrawerNavigator(
         drawer: MainStack
     },
     {
-        contentComponent: SideMenu,
+        contentComponent: SideMenuConnect,
         drawerWidth: Dimensions.get('window').width * 0.75
     }
 )
 
 const authStack = createStackNavigator(
     {
+        Welcome: {
+            screen: Welcome,
+            navigationOptions: navOptionHandler
+        },
         Login: {
             screen: Login,
             navigationOptions: navOptionHandler
         },
-        Register: {
-            screen: Register,
+        SignUp: {
+            screen: SignUp,
             navigationOptions: navOptionHandler
         }
     }

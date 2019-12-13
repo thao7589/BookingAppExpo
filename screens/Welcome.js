@@ -1,7 +1,12 @@
 import React, {useEffect} from 'react';
 import { Block, Button, Text } from '../components';
+import { connect } from 'react-redux';
 
-const Welcome = ({ navigation }) => {
+const Welcome = (props) => {
+    useEffect(() => {
+        
+    })
+
     Welcome.navigationOptions = {
         header: null
     };
@@ -9,13 +14,13 @@ const Welcome = ({ navigation }) => {
     return (
         <Block block>
             <Block block middle>
-                <Button button shop onPress={ () => navigation.navigate('Home') }>
+                <Button button shop onPress={ () => props.navigation.navigate('Home') }>
                     <Text login>Shop</Text>
                 </Button>
-                <Button button primary onPress={ () => navigation.navigate('Login') }>
+                <Button button primary onPress={ () => props.navigation.navigate('Login') }>
                     <Text login>Login</Text>
                 </Button>
-                <Button button secondary onPress={ () => navigation.navigate('SignUp') }>
+                <Button button secondary onPress={ () => props.navigation.navigate('SignUp') }>
                     <Text login>Sign Up</Text>
                 </Button> 
             </Block>    
@@ -23,16 +28,9 @@ const Welcome = ({ navigation }) => {
     );
 };
 
-Welcome.navigationOptions = ({navigation}) => {
-    return {
-        header: null,
-        headerLeft: () => (
-          <Button onPress={() => navigation.toggleDrawer()}>
-            <Text>opencxzc</Text>
-          </Button>
-        )
-      };
-    };
-
-export default Welcome;
+const mapStateToProps = state => ({
+    logined: state.booking.user.logined
+});
+     
+export default connect(mapStateToProps)(Welcome);   
 

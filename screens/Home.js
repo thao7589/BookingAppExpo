@@ -7,6 +7,7 @@ import SideMenu from '../screens/SideMenu';
 import MenuButton from '../components/MenuButton';
 import { AsyncStorage } from 'react-native';
 import { DrawerActions } from 'react-navigation-drawer';
+import CustomHeader from '../components/CustomHeader';
 
 const Home = (props) => {
     useEffect(() => {
@@ -21,10 +22,7 @@ const Home = (props) => {
 
     return (
         <Block block>
-            {/* <Block block>
-                <SideMenu  navigation={props.navigation}/>
-            </Block> */}
-            <MenuButton />
+            <CustomHeader title='Home' isHome={true} navigation={props.navigation}/>
             <FlatList  
                 data={props.booking.posts}
                 keyExtractor={post => post.postId}

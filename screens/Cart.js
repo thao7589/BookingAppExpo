@@ -3,27 +3,22 @@ import { FlatList, Image } from 'react-native';
 import { Block, Text, Button } from '../components'
 import { connect } from 'react-redux';
 import { viewPostDetail } from '../actions/index';
-import SideMenu from '../screens/SideMenu'; 
+import SideMenu from '../screens/SideMenu';
+import MenuButton from '../components/MenuButton';
 import { AsyncStorage } from 'react-native';
+import { DrawerActions } from 'react-navigation-drawer';
+import CustomHeader from '../components/CustomHeader';
 
 const Cart = (props) => {
-    useEffect(() => {
-        if(props.booking.viewPost) {
-            props.navigation.navigate('PostDetail')
-        }
-    });
-
     const onViewPostDetail = id => {
         props.viewPostDetail(id)
     };
-
+    
     return (
         <Block block>
-            {/* <Block block>
-                <SideMenu  navigation={props.navigation}/>
-            </Block> */}
+            <CustomHeader title='Cart' navigation={props.navigation}/>
             <FlatList  
-                data={props.booking.cart.list}
+                data={props.posts}
                 keyExtractor={post => post.postId}
                 renderItem={({ item }) => {
                     return (
@@ -45,12 +40,8 @@ const Cart = (props) => {
   )
 }  
 
-Cart.navigationOptions = {
-    header: null
-};
-
 const mapStateToProps = state => ({
-  list: state.booking.cart.list
+  posts: state.booking.cart.list
 })
 
 export default connect( mapStateToProps, { viewPostDetail })(Cart)

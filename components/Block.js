@@ -70,10 +70,11 @@ const styles = StyleSheet.create({
   },
   list: {
     borderWidth: 1,
-    backgroundColor: '#85A6C9',
     flex: 6
   },
   img: {
+    borderWidth: 1,
+    borderColor: '#000',
     flex: 3
   },
   drawerMenu: {
