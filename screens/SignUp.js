@@ -41,27 +41,27 @@ const SignUp = (props) => {
         <KeyboardAwareScrollView>
             <Block>
                 <Text h3>First name:</Text>
-                <TextInput login onChangeText={onChangeFirstName}></TextInput>
+                <TextInput login onChangeText={onChangeFirstName} value={props.user.firstName}></TextInput>
             </Block>
             <Block>
                 <Text h3>Last name:</Text>
-                <TextInput login onChangeText={onChangeLastName}></TextInput>
+                <TextInput login onChangeText={onChangeLastName} value={props.user.lastName}></TextInput>
             </Block>
             <Block>
                 <Text h3>Address:</Text>
-                <TextInput login onChangeText={onChangeAddress}></TextInput>
+                <TextInput login onChangeText={onChangeAddress} value={props.user.address}></TextInput>
             </Block>
             <Block>
                 <Text h3>Email:</Text>
-                <TextInput login onChangeText={onChangeEmail}></TextInput>
+                <TextInput login onChangeText={onChangeEmail} value={props.user.email}></TextInput>
             </Block>
             <Block> 
                 <Text h3>Password:</Text>
-                <TextInput login onChangeText={onChangePass}></TextInput> 
+                <TextInput login onChangeText={onChangePass} value={props.user.password}></TextInput> 
             </Block>
             <Block> 
                 <Text h3>Confirm Password:</Text>
-                <TextInput login onChangeText={onChangeConfirmPass}></TextInput> 
+                <TextInput login onChangeText={onChangeConfirmPass} value={props.user.password}></TextInput> 
             </Block>  
             <Block loginForm>
                 <Button primary onPress={onSubmitSignUp}>

@@ -194,9 +194,18 @@ class SideMenu extends React.Component {
                         <ListItem onPress={ () => this.props.navigation.navigate('Home') }>
                             <Text>Home</Text>
                         </ListItem>
+                        <ListItem onPress={ () => this.props.navigation.navigate('Home') }>
+                            <Text>Entertainment</Text>
+                        </ListItem>
+                        <ListItem onPress={ () => this.props.navigation.navigate('Home') }>
+                            <Text>Night Life</Text>
+                        </ListItem>
                         <ListItem onPress={ () => this.props.navigation.navigate('Cart') }>
                             {this.props.cart.count > 0 && <Badge style={{ position: 'absolute' }}><Text>{this.props.cart.count}</Text></Badge>}
                             <Text>Cart</Text>
+                        </ListItem>
+                        <ListItem onPress={ () => this.props.navigation.navigate('SignUp') }>
+                            <Text>Account</Text>
                         </ListItem>
                     </List>
                 </ScrollView>

@@ -9,11 +9,6 @@ import { updateUserField } from '../actions/index';
 const Loading = (props) => {
     useEffect(() => {
         _retrieveData();
-        if(props.logined) {
-            props.navigation.navigate('Home');
-        } else {
-            props.navigation.navigate('Welcome');
-        }
     });
 
     _retrieveData = async () => {
@@ -22,7 +17,9 @@ const Loading = (props) => {
           const password = await AsyncStorage.getItem('password');
           if (email !== null) {
             // We have data!!
-            console.log(email)
+            props.navigation.navigate('Home');
+          } else {
+            props.navigation.navigate('Welcome');
           }
         } catch (error) {
           // Error retrieving data

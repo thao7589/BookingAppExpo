@@ -10,7 +10,7 @@ const InputText = (props) => {
   ]; 
 
   return (
-    <TextInput style={inputStyles} onChangeText={props.onChangeText}>
+    <TextInput style={inputStyles} onChangeText={props.onChangeText} value={props.value}>
       {props.children} 
     </TextInput>  
   );
