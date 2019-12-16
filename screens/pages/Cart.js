@@ -3,8 +3,6 @@ import { FlatList, Image } from 'react-native';
 import { Block, Text, Button } from '../components'
 import { connect } from 'react-redux';
 import { viewPostDetail } from '../actions/index';
-import SideMenu from '../screens/SideMenu';
-import MenuButton from '../components/MenuButton';
 import { AsyncStorage } from 'react-native';
 import { DrawerActions } from 'react-navigation-drawer';
 import CustomHeader from '../components/CustomHeader';

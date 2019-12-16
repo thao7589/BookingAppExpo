@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Block, Button, Text, TextInput } from '../components';
-import * as constant from '../constants';
+import { Block, Button, Text, TextInput } from '../../components';
+import * as constant from '../../constants';
 import { connect } from 'react-redux';
-import { updateUserField, submitLogin } from '../actions/index';
-import CustomHeader from '../components/CustomHeader';
+import { updateUserField, submitLogin } from '../../actions/index';
+import CustomHeader from '../../components/CustomHeader';
 
 const Login = (props) => {
     useEffect(() => {
